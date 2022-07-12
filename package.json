@@ -1,0 +1,17 @@
+{
+  "name": "mfa",
+  "version": "1.0.0",
+  "description": "CLI to set MFA token",
+  "repository": "https://git-codecommit.eu-north-1.amazonaws.com/v1/repos/p4-sandbox-zdenko.sadojevic",
+  "main": "mfa.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zdenko.sadojevic@sinch.com",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "ini": "^3.0.0",
+    "prompts": "^2.4.2"
+  }
+}
