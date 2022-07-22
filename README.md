@@ -1,11 +1,19 @@
 # aws_mfa
 Node.js CLI app to set AWS MFA credentials.  
+When developing application I was driven by own requirements:
+- Multi AWS account support
+- CLI
+- Multi-platform (Run on Windows, Mac, Linux)
+- Scripted, no build/compilation
+- No need to check expiration. When temporary access token expired, I will get 403 error and I will run tool on demand
+- No long command line with many options
+- Simplified configuration
 
-MFA credentials are saved in credentials profile. 
+There are many tools which saves temporary access credentials to environment variable. I have choosen approach to save temporary access token in ~/.aws/credentials profile. Usage of spesific profile requires `--profile` command line argument but it allows simultaneous use of different profiles. If environment variables would be used, every switch of environment would require tool rerun.
 
 # Configuration
 Configuration is fetched from ~/.aws/config file.
-MFA ARN shoud be specified as additional parameter in ~/.aws/config file.  Specify it in profile which would be used to fetch session token. Please note: Temporary credentials cannot be used to get another temporary credentials. Inexample bellpw. `[profile no-mfa]' uses credentials which can be used to acquire session token.
+MFA ARN shoud be specified as additional parameter in ~/.aws/config file.  Specify it in profile which would be used to fetch session token. Please note: Temporary credentials cannot be used to get another temporary credentials. In example bellow. `[profile no-mfa]' uses credentials which can be used to acquire session token.
 For example
 ```ini
 [default]
